@@ -108,3 +108,24 @@ loadData('supermarket', '购物', mMarkerGroup.gsupermarket, mSupermarketDatas);
 
     });
 })(jQuery);
+
+// 只查看几个情况都符合的地方
+/**
+ * 要看是否符合条件的标准为几个情况有相交的的覆盖物
+ * 算法为 两点之间的距离，与他们的半径之合的
+ */
+function loadConform(){
+    var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+        pageSize: 5,
+        pageIndex: 1,
+        city: "010"//城市
+    });
+
+    placeSearch.searchNearBy("", [113.68, 34.755], 500, function(status, result) {
+        if (status === 'complete' && result.info === 'OK') {
+            //TODO : 解析返回结果,如果设置了map和panel，api将帮助完成点标注和列表
+        }
+    });
+
+
+}
